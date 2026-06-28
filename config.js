@@ -9,10 +9,22 @@
 window.SITE_CONFIG = {
 
   // -------------------- GOOGLE ADSENSE (advertising) --------------------
-  // ✅ Already set up! Publisher ID ca-pub-2466362384448460 is loaded via a
-  // static <script> in the <head> of index.html and privacy.html, using
-  // Auto Ads (Google places the ads automatically in the best spots).
-  // Ads will start showing once Google approves the AdSense account.
+  // ✅ Publisher ID ca-pub-2466362384448460 is loaded via a static <script> in
+  // the <head> of every page, using Auto Ads (Google places ads automatically).
+  // Ads start showing once Google approves the AdSense account.
+  //
+  // HYBRID / HIGH-EARNING SETUP (do this AFTER approval, for maximum revenue):
+  // In your AdSense dashboard create "Display" ad units, then paste each unit's
+  // slot ID below. The site will then place a guaranteed, high-visibility ad in
+  // each spot (these usually out-earn Auto Ads alone). Leave empty = Auto Ads only.
+  adsense: {
+    publisherId: "ca-pub-2466362384448460",
+    slots: {
+      afterResult: "",   // ⭐ best spot: right under the result the user just got
+      midStats: "",      // between the statistics, while scrolling
+      bottom: ""         // bottom of the page
+    }
+  },
 
   // -------------------- GOOGLE ANALYTICS (visitor stats) --------------------
   analytics: {

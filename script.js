@@ -202,6 +202,7 @@
     $("#form-section").classList.add("hidden");
     $("#results").classList.remove("hidden");
     $("#results").scrollIntoView({ behavior: "smooth" });
+    mountAds();   // now the in-result ad spots are visible → mount them
 
     saveToUrl(data);
     window.__shareData = { fullName, birthMs };
@@ -273,9 +274,26 @@
     }
   }
 
+  // ---- Manual high-value ad units (mounted only when slot IDs are set in config) ----
+  function mountAd(container) {
+    if (!container || container.dataset.mounted) return;
+    if (container.offsetParent === null) return;            // skip if not visible yet
+    const ads = (window.SITE_CONFIG || {}).adsense || {};
+    const pos = container.getAttribute("data-ad-position");
+    const slotId = ads.slots && ads.slots[pos];
+    if (!ads.publisherId || !slotId) return;                // no slot ID yet → Auto Ads handles it
+    container.dataset.mounted = "1";
+    container.innerHTML = `<ins class="adsbygoogle" style="display:block"
+      data-ad-client="${ads.publisherId}" data-ad-slot="${slotId}"
+      data-ad-format="auto" data-full-width-responsive="true"></ins>`;
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+  }
+  function mountAds() { document.querySelectorAll(".ad-slot").forEach(mountAd); }
+
   // ---- Startup ----
   document.addEventListener("DOMContentLoaded", () => {
     loadIntegrations();
+    mountAds();
 
     $("#life-form").addEventListener("submit", (e) => {
       e.preventDefault();

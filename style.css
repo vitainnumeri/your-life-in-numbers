@@ -200,19 +200,23 @@ input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(1); curso
 .share-btn.copy { background: #555; }
 
 /* ===== Ads ===== */
-.ad-slot {
-  min-height: 100px;
-  margin: 18px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed var(--card-border);
-  border-radius: 14px;
-  overflow: hidden;
+.ad-slot { margin: 20px 0; text-align: center; overflow: hidden; }
+.ad-slot:empty { display: none; }   /* nothing shown until an ad is mounted */
+
+/* ===== Info / content section ===== */
+.info { margin-top: 8px; }
+.info-block h2 { font-size: 1.35rem; margin-bottom: 12px; }
+.info-block p { color: var(--muted); margin-bottom: 10px; }
+.info-block p:last-child { margin-bottom: 0; }
+.facts { list-style: none; display: grid; gap: 12px; }
+.facts li {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
 }
-.ad-placeholder { color: #5f5e78; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
-.ad-slot.filled { border-style: solid; border-color: transparent; min-height: 0; }
-.ad-slot.filled .ad-placeholder { display: none; }
+.facts li strong { color: var(--good); }
 
 /* ===== Footer ===== */
 .footer { text-align: center; padding: 32px 0; color: var(--muted); font-size: 0.85rem; margin-top: 24px; }
