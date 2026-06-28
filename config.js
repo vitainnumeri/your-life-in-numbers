@@ -9,18 +9,10 @@
 window.SITE_CONFIG = {
 
   // -------------------- GOOGLE ADSENSE (advertising) --------------------
-  adsense: {
-    enabled: false,                          // set to true once you have the codes
-    publisherId: "ca-pub-XXXXXXXXXXXXXXXX",  // <- your AdSense publisher ID
-    autoAds: true,                           // true = Google places the ads automatically (easiest)
-    // If instead you want banners in specific spots, set autoAds:false and put
-    // your slot IDs below (one for each ad space already built into the site):
-    slots: {
-      top: "XXXXXXXXXX",
-      middle: "XXXXXXXXXX",
-      bottom: "XXXXXXXXXX"
-    }
-  },
+  // ✅ Already set up! Publisher ID ca-pub-2466362384448460 is loaded via a
+  // static <script> in the <head> of index.html and privacy.html, using
+  // Auto Ads (Google places the ads automatically in the best spots).
+  // Ads will start showing once Google approves the AdSense account.
 
   // -------------------- GOOGLE ANALYTICS (visitor stats) --------------------
   analytics: {

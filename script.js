@@ -200,7 +200,6 @@
     startTicking();
 
     $("#form-section").classList.add("hidden");
-    document.querySelector('.ad-slot[data-ad-position="top"]').classList.add("hidden");
     $("#results").classList.remove("hidden");
     $("#results").scrollIntoView({ behavior: "smooth" });
 
@@ -254,29 +253,11 @@
     setTimeout(() => t.remove(), 2200);
   }
 
-  // ---- Advertising & Analytics (loaded only if configured) ----
+  // ---- Analytics (loaded only if configured) ----
+  // Note: Google AdSense is loaded via a static <script> in the <head> of each
+  // HTML page (best for site verification + Auto Ads), not injected here.
   function loadIntegrations() {
     const cfg = window.SITE_CONFIG || {};
-    // Google AdSense
-    if (cfg.adsense && cfg.adsense.enabled && cfg.adsense.publisherId.indexOf("XXXX") === -1) {
-      const s = document.createElement("script");
-      s.async = true;
-      s.crossOrigin = "anonymous";
-      s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${cfg.adsense.publisherId}`;
-      document.head.appendChild(s);
-      if (!cfg.adsense.autoAds) {
-        document.querySelectorAll(".ad-slot").forEach(slot => {
-          const pos = slot.getAttribute("data-ad-position");
-          const slotId = cfg.adsense.slots && cfg.adsense.slots[pos];
-          if (!slotId || slotId.indexOf("XXXX") !== -1) return;
-          slot.classList.add("filled");
-          slot.innerHTML = `<ins class="adsbygoogle" style="display:block;width:100%"
-            data-ad-client="${cfg.adsense.publisherId}" data-ad-slot="${slotId}"
-            data-ad-format="auto" data-full-width-responsive="true"></ins>`;
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        });
-      }
-    }
     // Google Analytics
     if (cfg.analytics && cfg.analytics.enabled && cfg.analytics.measurementId.indexOf("XXXX") === -1) {
       const id = cfg.analytics.measurementId;
@@ -318,7 +299,6 @@
       history.replaceState(null, "", location.pathname);
       $("#results").classList.add("hidden");
       $("#form-section").classList.remove("hidden");
-      document.querySelector('.ad-slot[data-ad-position="top"]').classList.remove("hidden");
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 

@@ -11,3 +11,7 @@ desktop.ini
 # Log e temporanei
 *.log
 node_modules/
+
+# Pagine salvate dal browser (Ctrl+S) per sbaglio
+*_files/
+Your Life in Numbers*.html
