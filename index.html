@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Life in Numbers ⏳ | Discover how much you've lived</title>
+  <meta name="description" content="Enter your name and date of birth and discover in real time how many seconds you've lived, how many times your heart has beaten, how many breaths you've taken and many more incredible facts about your life!" />
+
+  <!-- Social / sharing (Facebook, TikTok, WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Your Life in Numbers ⏳" />
+  <meta property="og:description" content="Find out how many times your heart has beaten since you were born! 😱 Try it and share with friends." />
+  <meta property="og:image" content="og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="config.js"></script>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <h1>⏳ Your Life in Numbers</h1>
+      <p class="subtitle">Discover incredible things your body has done since you were born.<br>It's free and takes 10 seconds.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== AD SLOT 1 (top) ===== -->
+    <div class="ad-slot" data-ad-position="top">
+      <span class="ad-placeholder">Advertisement</span>
+    </div>
+
+    <!-- ===== FORM ===== -->
+    <section id="form-section" class="card form-card">
+      <form id="life-form" autocomplete="off">
+        <div class="form-row">
+          <div class="field">
+            <label for="nome">First name</label>
+            <input type="text" id="nome" name="nome" placeholder="John" required />
+          </div>
+          <div class="field">
+            <label for="cognome">Last name</label>
+            <input type="text" id="cognome" name="cognome" placeholder="Smith" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="nascita">Date of birth</label>
+            <input type="date" id="nascita" name="nascita" required />
+          </div>
+          <div class="field">
+            <label for="ora">Time of birth <span class="opt">(optional)</span></label>
+            <input type="time" id="ora" name="ora" value="12:00" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="altezza">Height in cm <span class="opt">(optional)</span></label>
+            <input type="number" id="altezza" name="altezza" placeholder="175" min="30" max="260" />
+          </div>
+          <div class="field">
+            <label for="peso">Weight in kg <span class="opt">(optional)</span></label>
+            <input type="number" id="peso" name="peso" placeholder="70" min="2" max="400" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary">✨ Reveal my life</button>
+        <p class="privacy-note">🔒 Your data stays on your device. Nothing is saved or sent anywhere.</p>
+      </form>
+    </section>
+
+    <!-- ===== RESULTS ===== -->
+    <section id="results" class="hidden">
+      <div class="results-header">
+        <h2 id="result-title">The life of…</h2>
+        <p id="result-age" class="result-age"></p>
+      </div>
+
+      <div class="hero-stat card">
+        <span class="hero-label">You have lived</span>
+        <span class="hero-number" data-stat="seconds">0</span>
+        <span class="hero-unit">seconds</span>
+      </div>
+
+      <!-- ===== AD SLOT 2 (middle) ===== -->
+      <div class="ad-slot" data-ad-position="middle">
+        <span class="ad-placeholder">Advertisement</span>
+      </div>
+
+      <div id="stats-grid" class="stats-grid"></div>
+
+      <div id="planets-card" class="card planets-card"></div>
+
+      <div class="share-box card">
+        <h3>📲 Share your result!</h3>
+        <p>Let your friends find out how long they've lived 👇</p>
+        <div class="share-buttons">
+          <button class="share-btn fb"   data-share="facebook">Facebook</button>
+          <button class="share-btn wa"   data-share="whatsapp">WhatsApp</button>
+          <button class="share-btn tg"   data-share="telegram">Telegram</button>
+          <button class="share-btn x"    data-share="x">X</button>
+          <button class="share-btn copy" data-share="copy">📋 Copy link</button>
+        </div>
+        <button id="restart" class="btn-secondary">↺ Run another calculation</button>
+      </div>
+
+      <!-- ===== AD SLOT 3 (bottom) ===== -->
+      <div class="ad-slot" data-ad-position="bottom">
+        <span class="ad-placeholder">Advertisement</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Values are estimates based on scientific averages and are for entertainment purposes. 💛</p>
+      <p><a href="privacy.html">Privacy</a> · Made with ⏳ for fun</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

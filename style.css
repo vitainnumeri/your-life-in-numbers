@@ -1,0 +1,229 @@
+/* ===== Reset & base ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f0c29;
+  --bg2: #302b63;
+  --bg3: #24243e;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #f5f5fa;
+  --muted: #b9b8d0;
+  --accent: #ff5e9a;
+  --accent2: #6a5cff;
+  --good: #36e0a4;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg), var(--bg2), var(--bg3));
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 18px; }
+
+.hidden { display: none !important; }
+
+/* ===== Hero ===== */
+.hero { text-align: center; padding: 48px 0 28px; }
+.hero h1 {
+  font-size: clamp(1.9rem, 6vw, 3rem);
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.subtitle { color: var(--muted); margin-top: 14px; font-size: 1.05rem; }
+
+/* ===== Cards ===== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin: 18px 0;
+}
+
+/* ===== Form ===== */
+.form-card { padding: 28px 24px; }
+.form-row { display: flex; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
+.field { flex: 1 1 180px; display: flex; flex-direction: column; }
+.field label { font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
+.field .opt { color: #7d7c98; font-weight: 400; }
+
+input {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 13px 14px;
+  color: var(--text);
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus {
+  outline: none;
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 3px rgba(106, 92, 255, 0.25);
+}
+input::placeholder { color: #6f6e8a; }
+/* Calendario/orologio nativi visibili su sfondo scuro */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+
+.btn-primary {
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transition: transform 0.12s, filter 0.2s;
+}
+.btn-primary:hover { filter: brightness(1.1); }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-secondary {
+  margin-top: 18px;
+  width: 100%;
+  padding: 13px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.06); }
+
+.privacy-note { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 14px; }
+
+/* ===== Results ===== */
+.results-header { text-align: center; margin: 28px 0 8px; }
+.results-header h2 {
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 800;
+}
+.result-age { color: var(--muted); margin-top: 6px; font-size: 1.05rem; }
+
+.hero-stat {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, rgba(255, 94, 154, 0.18), rgba(106, 92, 255, 0.18));
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.hero-label { display: block; color: var(--muted); font-size: 1rem; }
+.hero-number {
+  display: block;
+  font-size: clamp(2.4rem, 11vw, 4.2rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+  margin: 4px 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-unit { display: block; color: var(--muted); font-size: 1.1rem; }
+
+/* ===== Stats grid ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 18px 0;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.stat .icon { font-size: 2rem; display: block; }
+.stat .value {
+  display: block;
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  margin: 8px 0 2px;
+  color: var(--good);
+}
+.stat .label { color: var(--muted); font-size: 0.85rem; }
+.stat .sub { display: block; color: #7d7c98; font-size: 0.72rem; margin-top: 4px; }
+
+/* ===== Planets ===== */
+.planets-card h3 { text-align: center; margin-bottom: 16px; font-size: 1.25rem; }
+.planets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.planet { text-align: center; }
+.planet .pico { font-size: 1.8rem; display: block; }
+.planet .page { font-weight: 700; font-size: 1.05rem; color: var(--good); display: block; margin-top: 4px; }
+.planet .pname { color: var(--muted); font-size: 0.78rem; }
+
+/* ===== Share ===== */
+.share-box { text-align: center; }
+.share-box h3 { font-size: 1.3rem; }
+.share-box p { color: var(--muted); margin: 6px 0 16px; }
+.share-buttons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.share-btn {
+  flex: 1 1 100px;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #fff;
+  cursor: pointer;
+  transition: filter 0.15s, transform 0.1s;
+}
+.share-btn:hover { filter: brightness(1.12); }
+.share-btn:active { transform: scale(0.97); }
+.share-btn.fb   { background: #1877f2; }
+.share-btn.wa   { background: #25d366; }
+.share-btn.tg   { background: #2aabee; }
+.share-btn.x    { background: #000; border: 1px solid #444; }
+.share-btn.copy { background: #555; }
+
+/* ===== Ads ===== */
+.ad-slot {
+  min-height: 100px;
+  margin: 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--card-border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.ad-placeholder { color: #5f5e78; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
+.ad-slot.filled { border-style: solid; border-color: transparent; min-height: 0; }
+.ad-slot.filled .ad-placeholder { display: none; }
+
+/* ===== Footer ===== */
+.footer { text-align: center; padding: 32px 0; color: var(--muted); font-size: 0.85rem; margin-top: 24px; }
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* ===== Animazione comparsa ===== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+#results:not(.hidden) > * { animation: fadeUp 0.5s ease both; }
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .planets-grid { grid-template-columns: repeat(2, 1fr); }
+}
