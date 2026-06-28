@@ -20,9 +20,9 @@ window.SITE_CONFIG = {
   adsense: {
     publisherId: "ca-pub-2466362384448460",
     slots: {
-      afterResult: "",   // ⭐ best spot: right under the result the user just got
-      midStats: "",      // between the statistics, while scrolling
-      bottom: ""         // bottom of the page
+      afterResult: "8796618300",   // ⭐ best spot: right under the result the user just got
+      midStats: "1355709611",      // between the statistics, while scrolling
+      bottom: "3518838520"         // bottom of the page
     }
   },
 
